@@ -71,3 +71,39 @@ button:hover {
   background: #333;
 }
 
+/* ---------------- HAMBURGER MENU ---------------- */
+
+.menu-container{
+    position: fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+}
+
+.hamburger{
+    font-size:36px;
+    cursor:pointer;
+    color:#9e1264;
+    user-select:none;
+}
+
+#menu{
+    display:none;
+    margin-top:10px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    overflow:hidden;
+}
+
+#menu a{
+    display:block;
+    padding:15px 30px;
+    text-decoration:none;
+    color:#9e1264;
+    font-weight:bold;
+}
+
+#menu a:hover{
+    background:#f3f3f3;
+}
