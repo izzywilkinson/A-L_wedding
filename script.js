@@ -1,13 +1,15 @@
+const menu = document.getElementById("mobileMenu");
+const button = document.getElementById("menuButton");
+const overlay = document.getElementById("overlay");
 
-function toggleMenu() {
+button.addEventListener("click",()=>{
+    menu.classList.toggle("open");
+    button.classList.toggle("open");
+    overlay.classList.toggle("show");
+});
 
-    const menu = document.getElementById("menu");
-
-    if (menu.style.display === "block") {
-        menu.style.display = "none";
-    }
-    else {
-        menu.style.display = "block";
-    }
-
-}
+overlay.addEventListener("click",()=>{
+    menu.classList.remove("open");
+    button.classList.remove("open");
+    overlay.classList.remove("show");
+});

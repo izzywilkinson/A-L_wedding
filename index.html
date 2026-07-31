@@ -14,23 +14,23 @@
 
   <body>
 
-    <!-- Hamburger Menu -->
-    <div class="menu-container">
+    <header>
+      <button class="menu-button" id="menuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+  </header>
 
-        <div class="hamburger" onclick="toggleMenu()">
-            ☰
-        </div>
-
-        <nav id="menu">
-            <a href="index.html">Home</a>
-            <a href="rsvp.html">RSVP</a>
-            <a href="schedule.html">Schedule</a>
-            <a href="accomodation.html">Accommodation</a>
-            <a href="dresscode.html">Dress Code</a>
-            <a href="faqs.html">FAQs</a>
-        </nav>
-
-    </div>
+  <nav class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="accomodation.html">Accommodation</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="faqs.html">FAQs</a>
+  </nav>
+  <div class="overlay" id="overlay"></div>
 
   <!----------- HOME PAGE ------------------>
       <section id="home">
