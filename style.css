@@ -1,0 +1,73 @@
+
+h1{
+  font-size: 60px;
+  font-family: Georgia, serif;
+  margin: 0;
+}
+
+h2{
+  margin: 0;
+}
+
+h3{
+  margin: 0;
+}
+
+body {
+  font-family: Georgia, serif;
+  margin: 0;
+  line-height: 1.6;
+  background-image: url("images/A+L_background.png");
+  /* UNDECIDED IF WE WANT BACKGROUND TO BE STILL*/
+  /* background-repeat: no-repeat;
+  background-size: cover; 
+  background-attachment: fixed; */
+  /* UNDECIDED IF WE WANT BACKGROUND TO MOVE WITH SCROLL*/
+  background-repeat: repeat;
+  background-size: 100% auto;
+  background-position: top;
+}
+
+/* each section fills screen nicely*/
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* title section */
+.home {
+  min-height: 100vh; /* full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+}
+
+/* schedule styling */
+.schedule ul {
+  background: #9e1264;
+  list-style: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.navigation {
+  background: #9e1264;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: rgb(185, 21, 120);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #333;
+}
+
