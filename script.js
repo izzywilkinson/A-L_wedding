@@ -1,15 +1,28 @@
-const menu = document.getElementById("mobileMenu");
 const button = document.getElementById("menuButton");
+const menu = document.getElementById("mobileMenu");
 const overlay = document.getElementById("overlay");
 
-button.addEventListener("click",()=>{
-    menu.classList.toggle("open");
-    button.classList.toggle("open");
-    overlay.classList.toggle("show");
-});
+function openMenu(){
+    menu.classList.add("open");
+    button.classList.add("open");
+    overlay.classList.add("show");
+}
 
-overlay.addEventListener("click",()=>{
+function closeMenu(){
     menu.classList.remove("open");
     button.classList.remove("open");
     overlay.classList.remove("show");
+}
+
+button.addEventListener("click", () => {
+    if(menu.classList.contains("open")){
+        closeMenu();
+    }else{
+        openMenu();
+    }
+});
+
+overlay.addEventListener("click", closeMenu);
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
 });
