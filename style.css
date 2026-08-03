@@ -1,5 +1,15 @@
+/* style.css - main site styles
+   Variables and global layout for the wedding website. */
+:root{
+  /* Color variables: change these to update the site's color theme */
+  --pink:#9e1264;
+  --pink-light:#b91578;
+  --white:#ffffff;
+  --dark:#333;
+}
 
 h1{
+  /* Main page headings: large serif for a formal look */
   font-size: 60px;
   font-family: Georgia, serif;
   margin: 0;
@@ -14,51 +24,55 @@ h3{
 }
 
 body {
+  /* Base type and background. Be cautious with `background-attachment: fixed`
+     as it can hurt performance on mobile — consider removing it if pages
+     feel slow. */
   font-family: Georgia, serif;
   margin: 0;
   line-height: 1.6;
+  /* Background image for the site. Use the PNG that exists in the images/ folder. */
   background-image: url("images/A+L_background.png");
-  /* UNDECIDED IF WE WANT BACKGROUND TO BE STILL*/
-  /* background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: cover; 
-  background-attachment: fixed; */
-  /* UNDECIDED IF WE WANT BACKGROUND TO MOVE WITH SCROLL*/
-  background-repeat: repeat;
-  background-size: 100% auto;
-  background-position: top;
+  background-attachment: fixed;
 }
 
 /* each section fills screen nicely*/
+/* Section layout: keeps content centered with generous padding. */
 section {
   padding: 80px 20px;
   text-align: center;
 }
 
 /* title section */
-.home {
+#home{
+  /* Hero section: vertically centered full-screen welcome area */
   min-height: 100vh; /* full screen */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
   align-items: center;
+  gap: 6px;
 }
 
 /* schedule styling */
 .schedule ul {
-  background: #9e1264;
+  /* Schedule list styling: colored background and rounded corners */
+  background: var(--pink);
   list-style: none;
   padding: 10px 20px;
   border-radius: 12px;
 }
 
 .navigation {
-  background: #9e1264;
+  /* Small pill-style navigation (if used) */
+  background: var(--pink);
   padding: 10px 20px;
   border-radius: 12px;
 }
 
-button {
+.btn {
+  /* Primary button style used for RSVP CTA */
   padding: 10px 20px;
   border: none;
   background: rgb(185, 21, 120);
@@ -67,6 +81,7 @@ button {
   cursor: pointer;
 }
 
+/* Hover state for buttons */
 button:hover {
   background: #333;
 }
@@ -75,78 +90,84 @@ button:hover {
         MOBILE MENU
 =========================== */
 
+/* Header containing the menu button, positioned top-right */
 header{
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:1002;
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:1002;
 }
 
 /* ---------- BUTTON ---------- */
 .menu-button{
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:15px;
-    background:rgba(255,255,255,.9);
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
-    cursor:pointer;
-    position:relative;
+  /* Floating menu button style: white rounded square */
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:15px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 8px 25px rgba(0,0,0,.15);
+  cursor:pointer;
+  position:relative;
 }
 
 /* both icons sit in exactly the same place */
 .menu-button span{
-    position:absolute;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
-    color:#9e1264;
-    transition:.25s;
+  /* Icons inside the button (hamburger and close) are stacked */
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+  color:#9e1264;
+  transition:.25s;
 }
 
 /* only show the hamburger initially */
 .close{
-    opacity:0;
+  /* Close icon hidden by default; shown when button has .open */
+  opacity:0;
 }
 
 /* when menu is open */
 .menu-button.open .hamburger{
-    opacity:0;
+  opacity:0;
 }
 
 .menu-button.open .close{
-    opacity:1;
+  opacity:1;
 }
 
 /* ---------- MENU ---------- */
 
 .mobile-menu{
-    position:fixed;
-    top:0;
-    right:-320px;
-    width:280px;
-    max-width:80vw;
-    height:100vh;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(10px);
-    border-radius:25px 0 0 25px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:35px;
-    transition:right .35s ease;
-    z-index:1001;
+  /* Off-canvas mobile menu slides in from the right */
+  position:fixed;
+  top:0;
+  right:-320px;
+  width:280px;
+  max-width:80vw;
+  height:100vh;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-radius:25px 0 0 25px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:35px;
+  transition:right .35s ease;
+  z-index:1001;
 }
 .mobile-menu.open{
-    right:0;
+  right:0;
 }
 .mobile-menu a{
-    text-decoration:none;
-    color:#9e1264;
-    font-size:2rem;
-    text-align:center;
+  /* Menu links: large and centered for easy tapping on mobile */
+  text-decoration:none;
+  color:#9e1264;
+  font-size:2rem;
+  text-align:center;
 }
 .mobile-menu a:hover{
     color:black;
@@ -155,16 +176,65 @@ header{
 /* ---------- BACKGROUND ---------- */
 
 .overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    opacity:0;
-    pointer-events:none;
-    transition:.35s;
-    z-index:1000;
+  /* Page overlay used when mobile menu is open */
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  opacity:0;
+  pointer-events:none;
+  transition:.35s;
+  z-index:1000;
 }
 
 .overlay.show{
     opacity:1;
     pointer-events:auto;
 }
+
+/* Accessibility: skip link shown when focused (keyboard users) */
+.skip-link{
+  position:absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus{
+  left: 10px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  background: var(--white);
+  color: var(--pink);
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 2000;
+}
+
+/* Reduce padding on small screens to make better use of space */
+@media (max-width: 600px){
+  section{
+    padding: 40px 16px;
+  }
+
+  h1{ font-size: clamp(28px, 8vw, 48px); }
+  h2{ font-size: clamp(18px, 5vw, 28px); }
+
+  /* Avoid fixed background on small devices (performance) */
+  body{
+    background-attachment: scroll;
+  }
+
+  /* Make mobile menu links slightly smaller to fit narrow screens */
+  .mobile-menu a{ font-size: 1.5rem; }
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .mobile-menu, .menu-button span, .overlay{ transition: none !important; }
+}
+
+/* Focus styles for keyboard users */
+.mobile-menu:focus-within{ outline: 2px solid var(--pink-light); }
+.mobile-menu a:focus{ outline: 3px solid var(--pink-light); border-radius: 6px; }

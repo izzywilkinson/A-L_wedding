@@ -3,39 +3,62 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SCHEDULE</title>
+    <title>SCHEDULE</title>
 
-  <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<body>
+  <body>
 
-  <section>
-    <h2>Welcome Drinks</h2>
-    <ul>
-      <li>We will be hosting an optional welcome drinks reception on Friday 22nd September for those that will be in Cyprus that evening. Please join us for drinks and mingling at Antasia bar from 6pm onwards.</li>
-    </ul>
-    <h2>Order of the day</h2>
-    <ul>
-      <li>3:00pm - Liopetro wedding bus pickup</li>
-      <li>3:30pm - Welcome Drinks</li>
-      <li>4:00pm - Ceremony</li>
-      <li>6:30pm - Wedding BBQ </li>
-      <li>8:30pm - Party</li>
-      <li>11:45pm - Liopetro wedding bus drop off</li>
-    </ul>
-    NB: Exact pick up time to be confirmed depending on pickup location - let us know which hotel you choose and we'll advise you the nearest pickup location and timing.
-  
-  <a href="index.html">home</a>
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#maincontent">Skip to content</a>
+    <!-- Header + mobile nav (shared) -->
+    <header>
+        <button id="menuButton" class="menu-button" aria-label="Open menu">
+            <span class="hamburger">☰</span>
+            <span class="close">✕</span>
+        </button>
+    </header>
+
+    <div id="overlay" class="overlay"></div>
+
+    <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Primary" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="accomodation.html">Accommodation</a>
+        <a href="dresscode.html">Dress Code</a>
+        <a href="faqs.html">FAQs</a>
+    </nav>
+
+    <!-- Schedule page: welcome drinks and order-of-the-day timings. -->
+    <a id="maincontent"></a>
+    <section>
+      <h2>Welcome Drinks</h2>
+      <ul>
+        <li>We will be hosting an optional welcome drinks reception on Friday 22nd September for those that will be in Cyprus that evening. Please join us for drinks and mingling at Antasia bar from 6pm onwards.</li>
+      </ul>
+      <h2>Order of the day</h2>
+      <ul>
+        <li>3:00pm - Liopetro wedding bus pickup</li>
+        <li>3:30pm - Welcome Drinks</li>
+        <li>4:00pm - Ceremony</li>
+        <li>6:30pm - Wedding BBQ </li>
+        <li>8:30pm - Party</li>
+        <li>11:45pm - Liopetro wedding bus drop off</li>
+      </ul>
+      NB: Exact pick up time to be confirmed depending on pickup location - let us know which hotel you choose and we'll advise you the nearest pickup location and timing.
+    
+    <!-- Return to home. -->
+    <a href="index.html">home</a>
+
+    <!-- Script included to support the mobile menu interaction when present. -->
+    <script src="script.js"></script>
+
   </body>
-  </section>
 
-
-
-  <script src="script.js"></script>
-
-</body>
+</html>

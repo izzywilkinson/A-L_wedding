@@ -10,34 +10,47 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <link rel="preload"
+      href="images/A+L_background.png"
+      as="image">
+
   </head>
 
   <body>
+    <!-- Skip link for keyboard users: becomes visible when focused -->
+    <a class="skip-link" href="#maincontent">Skip to content</a>
+    <!-- Header: contains the menu button that toggles the mobile navigation. -->
     <header>
 
-        <button id="menuButton" class="menu-button" aria-label="Open menu">
+      <!-- Menu button: toggled by JavaScript. Shows hamburger (☰) when closed
+         and a close icon (✕) when open. Keep the aria-label for accessibility. -->
+      <button id="menuButton" class="menu-button" aria-label="Open menu">
 
-            <span class="hamburger">☰</span>
-            <span class="close">✕</span>
+        <span class="hamburger">☰</span>
+        <span class="close">✕</span>
 
-        </button>
+      </button>
 
     </header>
 
+    <!-- Overlay: dark translucent layer shown when the mobile menu opens. -->
     <div id="overlay" class="overlay"></div>
 
-    <nav id="mobileMenu" class="mobile-menu">
+    <!-- Mobile navigation: hidden off-screen by default, slides in when open. -->
+    <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Primary" aria-hidden="true">
 
-        <a href="index.html">Home</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="accomodation.html">Accommodation</a>
-        <a href="dresscode.html">Dress Code</a>
-        <a href="faqs.html">FAQs</a>
+      <a href="index.html">Home</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="accomodation.html">Accommodation</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="faqs.html">FAQs</a>
 
     </nav>
 
 <!----------- HOME PAGE ------------------>
+      <!-- Main hero / home section: title, date and location. -->
+      <a id="maincontent"></a>
       <section id="home">
         <h1>Abigail</h1>
         <h2> & </h2>
@@ -51,6 +64,7 @@
   
 
   <!----------- RSVP PAGE ------------------>
+      <!-- RSVP call-to-action: brief invite and button linking to the RSVP page. -->
       <section id="rsvp">
         <h2>Will you be available to celebrate with us?</h2>
         <p>
@@ -58,12 +72,15 @@
           Please let us know whether you'll be joining us by completing our RSVP form
         </p>
         <a href="rsvp.html">
-          <button>RSVP Here</button>
+          <button class="btn">
+            RSVP
+          </button>
         </a>
       </section>
       
 
   <!----------- JAVASCRIPT ------------------>
+  <!-- Load the interaction script which handles the mobile menu toggling. -->
       <script src="script.js"></script>
 
 

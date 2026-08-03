@@ -3,24 +3,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DRESSCODE</title>
+    <title>DRESSCODE</title>
 
-  <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<body>
-    <h2>Dress Code</h2>
-    The bridal party will be in Fuchsia, please avoid this colour if possible!
-    <br>
-    Ladies: Think colourful/floral midi/maxi dresses.
-    <br>
-    Gentlemen: Suit and tie, kindly no shorts. 
-    <br>
-      <a href="index.html">home</a>
-</body>
+      <body>
 
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#maincontent">Skip to content</a>
+      <!-- Header + mobile nav so the menu is available on every page -->
+      <header>
+        <button id="menuButton" class="menu-button" aria-label="Open menu">
+          <span class="hamburger">☰</span>
+          <span class="close">✕</span>
+        </button>
+      </header>
 
+      <div id="overlay" class="overlay"></div>
+
+      <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Primary" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="accomodation.html">Accommodation</a>
+        <a href="dresscode.html">Dress Code</a>
+        <a href="faqs.html">FAQs</a>
+      </nav>
+
+      <!-- Dress code page: guidance for guests on what to wear. -->
+      <a id="maincontent"></a>
+      <main>
+        <h2>Dress Code</h2>
+      The bridal party will be in Fuchsia, please avoid this colour if possible!
+      <br>
+      Ladies: Think colourful/floral midi/maxi dresses.
+      <br>
+      Gentlemen: Suit and tie, kindly no shorts. 
+      <br>
+          <!-- Return link to the main page. -->
+          <a href="index.html">home</a>
+
+        <!-- Include the shared interaction script so the menu works on this page -->
+        <script src="script.js"></script>
+      </main>
+  </body>
+
+</html>

@@ -2,45 +2,72 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ACCOMODATION</title>
+    <title>ACCOMODATION</title>
 
-  <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<body>
+  <body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#maincontent">Skip to content</a>
+  <!-- Header and mobile navigation (shared across pages):
+       The button toggles the off-canvas menu. The overlay darkens the page
+       when the menu is open. -->
 
+    <header>
+        <button id="menuButton" class="menu-button" aria-label="Open menu">
+            <span class="hamburger">☰</span>
+            <span class="close">✕</span>
+        </button>
+    </header>
 
-  <section>
-    <h1>Accommodation</h1>
-    <br>
-      We recommend staying in the Kato Paphos area and have suggested some hotels below to suit various budgets, all within walking distance from each other.
+    <div id="overlay" class="overlay"></div>
+
+    <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Primary" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="accomodation.html">Accommodation</a>
+        <a href="dresscode.html">Dress Code</a>
+        <a href="faqs.html">FAQs</a>
+    </nav>
+
+    <!-- Accommodation page: lists suggested hotels and transport info. -->
+    <a id="maincontent"></a>
+    <section>
+      <h1>Accommodation</h1>
+      <br>
+        We recommend staying in the Kato Paphos area and have suggested some hotels below to suit various budgets, all within walking distance from each other.
+        <br>
+        <br>
+        There will be wedding bus transportation that will bring you to and from Liopetro - let us know which hotel you choose and we'll advise the nearest pickup location and timing!
+        <br>
+        <br>
+        Annabelle Hotel
+        <br>
+        <br>
+        Anemi Hotel and Suites
+        <br>
+        <br>
+        Victoria Hotel
+        <br>
+        <br>
+        Map of Kato Paphos
+        
       <br>
       <br>
-      There will be wedding bus transportation that will bring you to and from Liopetro - let us know which hotel you choose and we'll advise the nearest pickup location and timing!
-      <br>
-      <br>
-      Annabelle Hotel
-      <br>
-      <br>
-      Anemi Hotel and Suites
-      <br>
-      <br>
-      Victoria Hotel
-      <br>
-      <br>
-      Map of Kato Paphos
+        <!-- Link back to the home page. -->
+        <a href="index.html">home</a>
       
-    <br>
-    <br>
-      <a href="index.html">home</a>
-    
-    <br>
+      <br>
 
 
-  </section>
+    </section>
 
-</body>
+  </body>
+
+</html>
