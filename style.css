@@ -68,7 +68,7 @@ body {
 
 @media (max-width: 600px){
   html {
-    background-size: contain;
+    background-size: cover;
     background-position: center top;
   }
 
