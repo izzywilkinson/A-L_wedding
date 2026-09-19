@@ -6,8 +6,7 @@
   --pink-light:#b91578;
   --white:#ffffff;
   --dark:#333;
-  --script-title: "Edwardian Script ITC", "Segoe Script", cursive;
-  --script-subheading: "Segoe Print", "Bradley Hand ITC", "Edwardian Script ITC", cursive;
+  --script-title: "Great Vibes", cursive;
   --script-main: Georgia, serif;
 }
 
@@ -20,7 +19,7 @@ h1{
   font-weight: 400;
   letter-spacing: 0.02em;
   margin: 0;
-  font-size: 200px;
+  font-size: 100px;
   line-height: 0.9;
 }
 
@@ -46,9 +45,9 @@ h4{
   font-family: "Baskerville", "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: 0.01em;
-  margin: 20px 0;
+  margin: 0;
   font-size: 56px;
-  line-height: 1;
+  line-height: 0.8;
 }
 
 body {
@@ -77,22 +76,59 @@ section {
 /* title section */
 #home{
   /* Hero section: vertically centered full-screen welcome area */
-  min-height: 100vh; /* full screen */
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 6px;
+  padding: 40px 16px;
+  text-align: center;
+}
+
+#home h1 {
+  font-size: clamp(62px, 18vw, 140px);
+  line-height: 0.9;
 }
 
 #home h2 {
+  font-size: clamp(26px, 7vw, 44px);
   margin-top: 18px;
   margin-bottom: 18px;
 }
 
 #home h3 {
-  margin-top: 0;
-  margin-bottom: 0;
+  font-size: clamp(24px, 5vw, 36px);
+}
+
+#home h4 {
+  font-size: clamp(40px, 11vw, 80px);
+  margin: 0 18px;
+  line-height: 0.9;
+}
+
+@media (max-width: 600px){
+  section{
+    padding: 40px 16px;
+  }
+
+  #home {
+    gap: 4px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  #home h1 { font-size: clamp(64px, 20vw, 120px); }
+  #home h2 { font-size: clamp(24px, 7vw, 40px); margin-top: 16px; margin-bottom: 16px; }
+  #home h3 { font-size: clamp(22px, 6vw, 30px); }
+  #home h4 { font-size: clamp(36px, 10vw, 70px); margin: 0 12px; }
+
+  body{
+    background-attachment: scroll;
+  }
+
+  .mobile-menu a{ font-size: 1.5rem; }
 }
 
 /* Shared layout for info pages: centered content on the page */
@@ -339,24 +375,6 @@ header{
   padding: 8px 12px;
   border-radius: 6px;
   z-index: 2000;
-}
-
-/* Reduce padding on small screens to make better use of space */
-@media (max-width: 600px){
-  section{
-    padding: 40px 16px;
-  }
-
-  h1{ font-size: clamp(28px, 8vw, 48px); }
-  h2{ font-size: clamp(18px, 5vw, 28px); }
-
-  /* Avoid fixed background on small devices (performance) */
-  body{
-    background-attachment: scroll;
-  }
-
-  /* Make mobile menu links slightly smaller to fit narrow screens */
-  .mobile-menu a{ font-size: 1.5rem; }
 }
 
 /* Respect user's reduced motion preference */
