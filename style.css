@@ -30,10 +30,12 @@ body {
   font-family: Georgia, serif;
   margin: 0;
   line-height: 1.6;
+  background-color: #f5edf1;
   /* Background image for the site. Use the PNG that exists in the images/ folder. */
   background-image: url("images/A+L_background.png");
   background-repeat: no-repeat;
   background-size: cover; 
+  background-position: center center;
   background-attachment: fixed;
 }
 
@@ -108,17 +110,27 @@ section {
 
 .btn {
   /* Primary button style used for RSVP CTA */
+  display: inline-block;
   padding: 10px 20px;
   border: none;
   background: rgb(185, 21, 120);
   color: white;
   border-radius: 8px;
+  text-decoration: none;
+  font: inherit;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 /* Hover state for buttons */
-button:hover {
+.btn:hover,
+.btn:focus-visible {
   background: #333;
+}
+
+.menu-button:hover,
+.menu-button:focus-visible {
+  background: rgba(255, 255, 255, 0.96);
 }
 
 /* ===========================
