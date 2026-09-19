@@ -52,7 +52,7 @@ html {
   background-image: url("images/A+L_background.png");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: 100vw auto;
+  background-size: cover;
 }
 
 body {
@@ -64,6 +64,30 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   background: transparent;
+}
+
+@media (max-width: 600px){
+  html {
+    background-size: 80vw auto;
+    background-position: center top;
+  }
+
+  section{
+    padding: 40px 16px;
+  }
+
+  #home {
+    gap: 14px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  #home h1{ font-size: clamp(84px, 24vw, 120px); }
+  #home h2{ font-size: clamp(30px, 8vw, 42px); margin-top: 20px; margin-bottom: 20px; }
+  #home h3{ font-size: clamp(28px, 7vw, 32px); }
+  #home h4{ font-size: clamp(50px, 15vw, 72px); margin: 12px 0; }
+
+  .mobile-menu a{ font-size: 1.5rem; }
 }
 
 /* each section fills screen nicely*/
