@@ -57,9 +57,9 @@ body {
   /* Background image for the site. Use the PNG that exists in the images/ folder. */
   background-image: url("images/A+L_background.png");
   background-repeat: no-repeat;
-  background-size: cover; 
-  background-position: center center;
-  background-attachment: fixed;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: scroll;
 }
 
 /* each section fills screen nicely*/
@@ -124,10 +124,6 @@ section {
   #home h2{ font-size: clamp(30px, 8vw, 42px); margin-top: 20px; margin-bottom: 20px; }
   #home h3{ font-size: clamp(28px, 7vw, 32px); }
   #home h4{ font-size: clamp(50px, 15vw, 72px); margin: 12px 0; }
-
-  body{
-    background-attachment: scroll;
-  }
 
   .mobile-menu a{ font-size: 1.5rem; }
 }
