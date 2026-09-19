@@ -6,28 +6,53 @@
   --pink-light:#b91578;
   --white:#ffffff;
   --dark:#333;
+  --script-title: "Edwardian Script ITC", "Segoe Script", cursive;
+  --script-subheading: "Segoe Print", "Bradley Hand ITC", "Edwardian Script ITC", cursive;
+  --script-main: Georgia, serif;
 }
 
 h1{
   /* Main page headings: large serif for a formal look */
-  font-size: 60px;
-  font-family: Georgia, serif;
+  font-family: var(--script-title);
+  font-weight: 400;
+  letter-spacing: 0.02em;
   margin: 0;
+  font-size: 100px;
+  line-height: 0.9;
 }
 
 h2{
+  font-family: var(--script-subheading);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   margin: 0;
+  font-size: 60px;
+  line-height: 1;
 }
 
 h3{
+  font-family: var(--script-subheading);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   margin: 0;
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+h4{
+  font-family: var(--script-subheading);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-size: 56px;
+  line-height: 0.8;
 }
 
 body {
   /* Base type and background. Be cautious with `background-attachment: fixed`
      as it can hurt performance on mobile — consider removing it if pages
      feel slow. */
-  font-family: Georgia, serif;
+  font-family: var(--script-main);
   margin: 0;
   line-height: 1.6;
   background-color: #f5edf1;
@@ -55,6 +80,50 @@ section {
   justify-content: center;
   align-items: center;
   gap: 6px;
+}
+
+/* Shared layout for info pages: centered content on the page */
+section.page-content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.page-copy {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-copy > * + * {
+  margin-top: 14px;
+}
+
+.page-copy p,
+.page-copy li,
+.page-copy div,
+.page-copy a {
+  font-size: 1.05rem;
+}
+
+.page-copy iframe {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.page-copy .info-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-copy .info-list li {
+  margin: 0 0 10px;
 }
 
 /* schedule styling */
