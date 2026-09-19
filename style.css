@@ -68,7 +68,7 @@ body {
 
 @media (max-width: 600px){
   html {
-    background-size: 80vw auto;
+    background-size: 100vw auto;
     background-position: center top;
   }
 
