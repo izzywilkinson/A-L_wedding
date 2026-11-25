@@ -2,9 +2,10 @@
    Variables and global layout for the wedding website. */
 :root{
   /* Color variables: change these to update the site's color theme */
-  --pink:#9e1264;
-  --pink-light:#b91578;
-  --white:#ffffff;
+  /* --pink:#9e1264;
+  --pink-light:#b91578; */
+  --background-colour:#a32f73;
+  --white:#080707;
   --dark:#333;
   --script-title: "Pinyon Script", cursive;
   --script-main: Georgia, serif;
@@ -18,7 +19,7 @@ h1{
   font-family: var(--script-title);
   font-weight: 400;
   letter-spacing: 0.02em;
-  font-size: 100px;
+  font-size: clamp(70px, 20vw, 140px);
   line-height: 0.9;
 }
 
@@ -26,24 +27,27 @@ h2{
   font-family: "Baskerville", "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: 0.01em;
-  font-size: clamp(34px, 3vw, 48px);
+  font-size: clamp(28px, 3.5vw, 40px);
   line-height: 1.1;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 
 h3{
   font-family: "Baskerville", "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: 0.01em;
-  font-size: 42px;
+  font-size: clamp(28px, 7vw, 36px);
   line-height: 1.1;
 }
 
 h4{
-  font-family: "Baskerville", "Times New Roman", serif;
+  font-family: var(--script-title);
   font-weight: 400;
   letter-spacing: 0.01em;
-  font-size: 56px;
-  line-height: 0.8;
+  font-size: clamp(44px, 13vw, 80px);
+  line-height: 0.9;
+  margin: 10px 0;
 }
 
 body {
@@ -53,13 +57,18 @@ body {
   font-family: var(--script-main);
   margin: 0;
   line-height: 1.6;
-  background-color: #f5edf1;
+  background-color: var(--background-colour);
   /* Background image for the site. Use the PNG that exists in the images/ folder. */
-  background-image: url("images/A+L_background.png");
+  background-image: url("images/website_background_w_tree.png");
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center center;
   background-attachment: fixed;
+}
+
+body:not(.home-page) {
+  background-image: none;
+  background-color: var(--background-colour);
 }
 
 /* each section fills screen nicely*/
@@ -83,30 +92,9 @@ section {
   text-align: center;
 }
 
-#home h1 {
-  font-size: clamp(70px, 20vw, 140px);
-  line-height: 0.9;
-}
-
-#home h2 {
-  font-size: clamp(28px, 3.5vw, 40px);
-  margin-top: 18px;
-  margin-bottom: 18px;
-}
-
-#home h3 {
-  font-size: clamp(28px, 7vw, 36px);
-}
-
+#home h1,
 #home h4 {
-  font-family: var(--script-title);
-  font-size: clamp(44px, 13vw, 80px);
-  margin: 10px 0;
-  line-height: 0.9;
-}
-
-#rsvp h2 {
-  font-size: clamp(30px, 3vw, 46px);
+  color: var(--background-colour);
 }
 
 @media (max-width: 600px){
@@ -119,11 +107,6 @@ section {
     padding-top: 72px;
     padding-bottom: 72px;
   }
-
-  #home h1{ font-size: clamp(84px, 24vw, 120px); }
-  #home h2{ font-size: clamp(30px, 8vw, 42px); margin-top: 20px; margin-bottom: 20px; }
-  #home h3{ font-size: clamp(28px, 7vw, 32px); }
-  #home h4{ font-size: clamp(50px, 15vw, 72px); margin: 12px 0; }
 
   body{
     background-attachment: scroll;
