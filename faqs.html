@@ -1,74 +1,97 @@
-<!----------- SCHEDULE PAGE ------------------>
-
 <!DOCTYPE html>
-<html lang="en">
+<!-- =====================================================================
+     faqs.html  –  FAQs
+     Each question is a <details> box: tap the question to fold the
+     answer open. This is built into HTML, so it needs no JavaScript.
+     To add a question, copy a whole <details> ... </details> block.
+     Same page skeleton as timeline.html, see notes there.
+     ===================================================================== -->
+<html lang="en-GB">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FAQs · Abigail &amp; Luke</title>
+  <meta name="theme-color" content="#f6eddf">
+  <link rel="icon" type="image/svg+xml" href="images/flower.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <title>FAQS</title>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+  <header class="topbar">
+    <a class="topbar__back" href="index.html">&larr; Home</a>
+    <a class="topbar__mono" href="index.html" aria-label="Abigail and Luke – home">A &amp; L</a>
+  </header>
 
-    <link rel="stylesheet" href="style.css">
-  </head>
+  <main id="main" class="page">
+    <article class="card">
+      <h1 class="page-title">FAQs</h1>
 
-  <body>
+      <div class="faq">
 
-    <!-- Skip link for keyboard users -->
-    <a class="skip-link" href="#maincontent">Skip to content</a>
-    <!-- Header + mobile nav (shared) -->
-    <header>
-        <button id="menuButton" class="menu-button" aria-label="Open menu">
-            <span class="hamburger">☰</span>
-            <span class="close">✕</span>
-        </button>
-    </header>
+        <details>
+          <summary>How do we get to the venue?</summary>
+          <div>
+            <p>There will be a wedding bus to take you to and from Kato Paphos and Liopetro.</p>
+            <p>For timings please see the <a href="timeline.html">Timeline</a>.</p>
+          </div>
+        </details>
 
-    <div id="overlay" class="overlay"></div>
+        <details>
+          <summary>Where should we stay?</summary>
+          <div>
+            <p>We recommend the Kato Paphos area &ndash; see our suggested hotels on the <a href="accommodation.html">Accommodation</a> page.</p>
+          </div>
+        </details>
 
-    <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Primary" aria-hidden="true">
-        <a href="index.html">Home</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="accomodation.html">Accommodation</a>
-        <a href="dresscode.html">Dress Code</a>
-        <a href="faqs.html">FAQs</a>
-    </nav>
+        <details>
+          <summary>Can I bring a plus one or children?</summary>
+          <div>
+            <p>We unfortunately cannot accommodate plus ones or children beyond those named on the wedding invitation. Thank you for understanding!</p>
+          </div>
+        </details>
 
-    <!-- FAQs page: common guest questions and practical info. -->
-    <a id="maincontent"></a>
-    <section class="page-content">
-      <div class="page-copy">
-        <h1>FAQs</h1>
+        <details>
+          <summary>What should I wear?</summary>
+          <div>
+            <p>The bridal party will be in fuchsia, so please avoid this colour if possible! Ladies: think colourful / floral midi or maxi dresses. Gentlemen: suit and tie, kindly no shorts.</p>
+            <p>More on the <a href="dresscode.html">Dress Code</a> page.</p>
+          </div>
+        </details>
 
-        <h2>Travel to the Venue</h2>
-        <p>There will be a wedding bus to transport you to and from Kato Paphos and Liopetro.</p>
-        <p>For timings please see the <a href="schedule.html">Order of the Day</a>.</p>
+        <details>
+          <summary>What's the food?</summary>
+          <div>
+            <p>A traditional Cypriot BBQ &ndash; see the <a href="food.html">Food</a> page. Please let us know about any dietary requirements on the RSVP form.</p>
+          </div>
+        </details>
 
-        <h2>Plus Ones and Children</h2>
-        <p>We unfortunately cannot accommodate plus ones or children beyond those named on the wedding invitation. Thank you for understanding!</p>
+        <details>
+          <summary>When do I need to RSVP by?</summary>
+          <div>
+            <p>We ask that all guests <a href="rsvp.html">RSVP</a> by <strong>Friday 2nd June 2028</strong>.</p>
+          </div>
+        </details>
 
-        <h2>Dress Code</h2>
-        <p>The bridal party will be in Fuchsia, please avoid this colour if possible!</p>
-        <p>Ladies: Think colourful/floral midi/maxi dresses.</p>
-        <p>Gentlemen: Suit and tie, kindly no shorts.</p>
-
-        <h2>Food</h2>
-        <p>Traditional Cypriot BBQ, including salad, bread and dip selection, live BBQ station, live pasta station and a selection of traditional desserts. Please let us know if you have any dietary requirements on the RSVP form.</p>
-
-        <h2>RSVP</h2>
-        <p>We ask that all guests <a href="rsvp.html">RSVP</a> by Friday 2nd June 2028.</p>
-        <p><a href="index.html">home</a></p>
       </div>
-    </section>
+    </article>
 
-    <!-- Script included so the shared menu toggle works when present -->
-    <script src="script.js"></script>
+    <nav class="page-nav" aria-label="Other pages">
+      <a href="timeline.html">Timeline</a>
+      <a href="accommodation.html">Accommodation</a>
+      <a href="food.html">Food</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="faqs.html">FAQs</a>
+    </nav>
+  </main>
 
-  </body>
+  <script src="script.js"></script>
+</body>
 
 </html>

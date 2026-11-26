@@ -1,0 +1,88 @@
+# Abigail & Luke – wedding website
+ 
+Plain HTML, CSS and JavaScript. No frameworks and no build step: what's in this folder is the whole website.
+ 
+## What's in the folder
+ 
+```
+index.html          Home: door intro → photo carousel → names → 6 arched tiles
+timeline.html       (was schedule.html)
+accommodation.html  (was accomodation.html – spelling fixed)
+food.html           NEW – content moved out of the FAQs
+dresscode.html
+rsvp.html           Google Form + "open full screen" backup button
+faqs.html           Tap-to-open questions
+style.css           ALL the styling for every page
+script.js           Doors, carousel, menu highlight (shared by every page)
+images/
+  door.jpg            Venue door, cropped so the gap between the doors is dead centre
+  brick-tile.jpg      Seamless brick tile (repeats with no visible join)
+  bougainvillea.svg   Flower branch decoration
+  flower.svg          Single flower (tiles, cards, browser tab icon)
+  carousel/           The 7 couple photos, resized for fast loading
+```
+ 
+Delete the old `schedule.html`, `accomodation.html` and the old background PNGs when you upload this. Nothing uses them any more.
+ 
+## 1. Try it on your computer
+ 
+Double-click `index.html`. That's it. The fonts load from Google, so you need internet for them to look right.
+ 
+To see it at phone size in Chrome, press **F12**, then click the little phone/tablet icon (top-left of the panel) and pick "iPhone 12 Pro" or similar.
+ 
+To watch the doors again: tap **"See the doors again"** at the bottom of the home page, or close the tab and reopen it.
+ 
+## 2. Put it online (free)
+ 
+You need the site to have a web address before you can make the QR code.
+ 
+**Option A – Netlify Drop (easiest, about 5 minutes)**
+1. Go to https://app.netlify.com/drop
+2. Drag this whole folder onto the page.
+3. Sign up / log in when it asks, so the site is kept. Unclaimed drops get deleted.
+4. Go to *Site configuration → Change site name* and pick something like `abigail-and-luke`. Your address becomes `https://abigail-and-luke.netlify.app`.
+5. To update the site later, open *Deploys* and drag the folder in again.
+**Option B – GitHub Pages (if you already use GitHub)**
+1. Upload everything in this folder to a repo. `index.html` must sit at the top level, not inside a sub-folder.
+2. Go to *Settings → Pages → Deploy from a branch → main / (root)*.
+3. After a minute it's live at `https://YOURNAME.github.io/REPO-NAME/`.
+⚠️ Web servers care about upper and lower case. `Door.jpg` and `door.jpg` are different files online, even though they work the same on Windows. Keep everything lowercase.
+ 
+## 3. Make the QR code
+ 
+Once you have the address, make a QR code that points **straight at it**. Avoid "dynamic QR" sites. Many of them redirect through their own servers and later start charging, or the code just stops working, possibly right before the wedding. Send me the address and I can generate a print-quality QR file for you.
+ 
+Before printing:
+- Test it with an **iPhone camera** and an **Android camera**.
+- Print it at least about 2.5 cm wide, dark on light, with a white margin around it.
+## 4. After it's live
+ 
+- **Link preview for WhatsApp:** in `index.html`, find the commented-out `og:image` line. Replace `YOUR-SITE-ADDRESS` with your real address and remove the `<!--` `-->` around it. Then a shared link shows the door photo.
+- **Phone checklist:** go through the site on iPhone (Safari), Android (Chrome) and a link opened inside WhatsApp. On each, check the doors, swiping the photos, every tile, the RSVP form submitting, and the map links.
+## How to change common things
+ 
+| I want to… | Do this |
+|---|---|
+| Change some wording | Edit the text in that page's `.html` file |
+| Add a carousel photo | Resize it to about 1200 px on its longest side (keeps loading fast on holiday data), put it in `images/carousel/`, then copy a `<figure>` block in `index.html` |
+| Change the pink / colours | Edit the variables at the top of `style.css` (section 1) |
+| Make the doors slower or faster | Change `1.9s` in the `.door` rule in `style.css` **and** `2200` in `script.js`. Keep the JS number a bit bigger than the CSS one |
+| Speed up the carousel | Change `AUTOPLAY_MS` in `script.js` |
+| Add a hotel or FAQ | Copy an existing `info-box` / `<details>` block and edit it |
+| Form cut off at the bottom | Increase `height` in `.embed--form` in `style.css` |
+ 
+## How the door trick works
+ 
+Picture a gatefold greetings card. The door photo is loaded twice, into two boxes that each cover half the screen. Each box crops its photo so you only see its half (`overflow: hidden`), and the two halves line up so it looks like one picture.
+ 
+On tap, JavaScript adds the class `intro-opening` to the page. The CSS then rotates each box in 3D around its **outer** edge: `transform-origin` is the hinge, and `rotateY` swings it open. `perspective` adds the depth, a slight zoom gives the feeling of stepping through, and finally the intro fades out.
+ 
+It's built to work on every phone:
+- The door only appears if JavaScript is working, so nobody can get stuck behind it.
+- Each visit remembers the doors were opened (`sessionStorage`), so tapping back to Home doesn't replay them.
+- If someone has "Reduce Motion" turned on in their phone settings, they get a gentle fade instead of the swing.
+## Still to check with the couple
+ 
+- The exact location of Antasia bar (for a map link on the Timeline page)
+- The bus pickup points once guests say which hotel they've booked
+ 

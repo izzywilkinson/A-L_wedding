@@ -1,58 +1,65 @@
-<!----------- DRESS-CODE PAGE ------------------>
- 
 <!DOCTYPE html>
-<html lang="en">
+<!-- =====================================================================
+     dresscode.html  –  DRESS CODE
+     Same skeleton as timeline.html, see notes there.
+     ===================================================================== -->
+<html lang="en-GB">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dress Code · Abigail &amp; Luke</title>
+  <meta name="theme-color" content="#f6eddf">
+  <link rel="icon" type="image/svg+xml" href="images/flower.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <title>DRESSCODE</title>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+  <header class="topbar">
+    <a class="topbar__back" href="index.html">&larr; Home</a>
+    <a class="topbar__mono" href="index.html" aria-label="Abigail and Luke – home">A &amp; L</a>
+  </header>
 
-    <link rel="stylesheet" href="style.css">
-  </head>
+  <main id="main" class="page">
+    <article class="card">
+      <h1 class="page-title">Dress Code</h1>
 
-      <body>
+      <!-- Fuchsia circle with a line through it (drawn in CSS: .avoid) -->
+      <div class="avoid">
+        <span class="avoid__swatch" aria-hidden="true"></span>
+        <span>Please avoid fuchsia</span>
+      </div>
+      <p>The bridal party will be wearing fuchsia, so please avoid this colour if possible!</p>
 
-    <!-- Skip link for keyboard users -->
-    <a class="skip-link" href="#maincontent">Skip to content</a>
-      <!-- Header + mobile nav so the menu is available on every page -->
-      <header>
-        <button id="menuButton" class="menu-button" aria-label="Open menu">
-          <span class="hamburger">☰</span>
-          <span class="close">✕</span>
-        </button>
-      </header>
-
-      <div id="overlay" class="overlay"></div>
-
-      <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Primary" aria-hidden="true">
-        <a href="index.html">Home</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="accomodation.html">Accommodation</a>
-        <a href="dresscode.html">Dress Code</a>
-        <a href="faqs.html">FAQs</a>
-      </nav>
-
-      <!-- Dress code page: guidance for guests on what to wear. -->
-      <a id="maincontent"></a>
-      <section class="page-content">
-        <div class="page-copy">
-          <h1>Dress Code</h1>
-          <p>The bridal party will be in Fuchsia, please avoid this colour if possible!</p>
-          <p>Ladies: Think colourful/floral midi/maxi dresses.</p>
-          <p>Gentlemen: Suit and tie, kindly no shorts.</p>
-          <p><a href="index.html">home</a></p>
+      <!-- Two boxes side by side on wider screens, stacked on phones -->
+      <div class="info-boxes info-boxes--two">
+        <div class="info-box">
+          <h3>Ladies</h3>
+          <p>Think colourful / floral midi or maxi dresses.</p>
         </div>
-      </section>
+        <div class="info-box">
+          <h3>Gentlemen</h3>
+          <p>Suit and tie &ndash; kindly no shorts.</p>
+        </div>
+      </div>
+    </article>
 
-      <!-- Include the shared interaction script so the menu works on this page -->
-      <script src="script.js"></script>
-  </body>
+    <nav class="page-nav" aria-label="Other pages">
+      <a href="timeline.html">Timeline</a>
+      <a href="accommodation.html">Accommodation</a>
+      <a href="food.html">Food</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="faqs.html">FAQs</a>
+    </nav>
+  </main>
+
+  <script src="script.js"></script>
+</body>
 
 </html>

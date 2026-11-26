@@ -1,91 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- =====================================================================
+     index.html  –  HOME PAGE (this is what the QR code opens)
+     ---------------------------------------------------------------------
+     Order of things on this page:
+       1. The door intro (covers the screen until tapped)
+       2. Photo carousel
+       3. Names, date, place
+       4. Six arched tiles linking to the other pages
+       5. Footer
+     ===================================================================== -->
 
-  <head>
+<!-- "no-js" is swapped to "js" by the little script below. The CSS only
+     shows the door intro when "js" is present, so if JavaScript is
+     switched off nobody gets stuck behind the doors. -->
+<html lang="en-GB" class="no-js">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
 
-    <title>Abigail & Luke</title>
+  <!-- Makes the page fit phone screens properly.
+       viewport-fit=cover lets the door photo fill the space around the
+       iPhone notch too. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+  <title>Abigail &amp; Luke · 24 September 2028</title>
+  <meta name="description" content="The wedding of Abigail and Luke – 24th September 2028, Liopetro, Paphos, Cyprus.">
 
-    <link rel="stylesheet" href="style.css">
+  <!-- Colours the phone's browser bar to match the site -->
+  <meta name="theme-color" content="#f6eddf">
 
-    <link rel="preload"
-      href="images/A+L_background.png"
-      as="image">
+  <!-- Link previews (how the link looks when pasted into WhatsApp etc.).
+       og:image MUST be a full web address, so fill it in once the site
+       is live, e.g. https://your-site.netlify.app/images/door.jpg
+       and then remove the <!- - - -> around it. -->
+  <meta property="og:title" content="Abigail & Luke · 24.09.2028">
+  <meta property="og:description" content="Liopetro, Paphos, Cyprus – all the details for our wedding.">
+  <!-- <meta property="og:image" content="https://YOUR-SITE-ADDRESS/images/door.jpg"> -->
 
-  </head>
+  <link rel="icon" type="image/svg+xml" href="images/flower.svg">
 
-  <body class="home-page">
-    <!-- Skip link for keyboard users: becomes visible when focused -->
-    <a class="skip-link" href="#maincontent">Skip to content</a>
-    <!-- Header: contains the menu button that toggles the mobile navigation. -->
-    <header>
+  <!-- Google Fonts: the curly script (Great Vibes) and the elegant serif
+       (Cormorant Garamond), chosen to match the save-the-date card. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
 
-      <!-- Menu button: toggled by JavaScript. Shows hamburger (☰) when closed
-         and a close icon (✕) when open. Keep the aria-label for accessibility. -->
-      <button id="menuButton" class="menu-button" aria-label="Open menu">
+  <!-- Ask the browser to start downloading the door photo straight away,
+       since it's the first thing anyone sees. -->
+  <link rel="preload" as="image" href="images/door.jpg">
 
-        <span class="hamburger">☰</span>
-        <span class="close">✕</span>
+  <link rel="stylesheet" href="style.css">
 
-      </button>
+  <!-- Tiny script that runs BEFORE the page is drawn:
+       1. swap "no-js" for "js" (so the CSS knows JavaScript works)
+       2. if the doors were already opened in this visit, add
+          "intro-seen" straight away so the doors don't flash up again
+          when someone comes back to Home from another page. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.className = root.className.replace('no-js', 'js');
+      try {
+        if (sessionStorage.getItem('doorsOpened') === 'yes') {
+          root.className += ' intro-seen';
+        }
+      } catch (e) { /* storage blocked (some private modes) – just show the doors */ }
+    })();
+  </script>
+</head>
 
-    </header>
+<body>
 
-    <!-- Overlay: dark translucent layer shown when the mobile menu opens. -->
-    <div id="overlay" class="overlay"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Mobile navigation: hidden off-screen by default, slides in when open. -->
-    <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Primary" aria-hidden="true">
+  <!-- ===================== 1. DOOR INTRO =====================
+       It's a <button> so it works with a tap, a click, or the
+       keyboard (Enter / Space). The SAME photo is used twice: the CSS
+       shows only the left half in the first box and the right half
+       in the second, then swings each box open on its hinge. -->
+  <button type="button" class="intro" id="intro" aria-label="Tap to open the doors and enter the website">
+    <span class="intro__doors">
+      <span class="door door--left">
+        <img src="images/door.jpg" alt="">
+      </span>
+      <span class="door door--right">
+        <img src="images/door.jpg" alt="">
+      </span>
+    </span>
 
-      <a href="index.html">Home</a>
-      <a href="rsvp.html">RSVP</a>
-      <a href="schedule.html">Schedule</a>
-      <a href="accomodation.html">Accommodation</a>
-      <a href="dresscode.html">Dress Code</a>
-      <a href="faqs.html">FAQs</a>
+    <span class="intro__names">Abigail &amp; Luke</span>
+    <span class="intro__hint">Tap to open</span>
+  </button>
 
+
+  <!-- tabindex="-1" lets the script move keyboard focus here after the
+       doors open, without adding it to the normal Tab order. -->
+  <main id="main" class="home-main" tabindex="-1">
+
+    <!-- ===================== 2. PHOTO CAROUSEL =====================
+         To add a photo: put it in images/carousel/ and copy one of the
+         <figure> blocks below, changing src and alt.
+         loading="lazy" = only download a photo when it's about to be
+         seen (saves data on holiday roaming!). The first two load
+         straight away. -->
+    <section class="carousel" aria-label="Photos of Abigail and Luke">
+      <div class="carousel__track" id="carouselTrack">
+
+        <figure class="carousel__slide">
+          <img src="images/carousel/01-engagement.jpg" alt="Abigail showing her engagement ring, lying on the grass with Luke" width="1200" height="1599">
+        </figure>
+
+        <figure class="carousel__slide">
+          <img src="images/carousel/02-dinner.jpg" alt="Abigail and Luke at dinner on a summer evening" width="1200" height="1600">
+        </figure>
+
+        <figure class="carousel__slide">
+          <img src="images/carousel/03-cyprus.jpg" alt="Abigail and Luke in the sunshine in front of pink flowers" width="1200" height="1600" loading="lazy">
+        </figure>
+
+        <figure class="carousel__slide">
+          <img src="images/carousel/04-sunset-drinks.jpg" alt="Abigail and Luke with glasses of fizz in a tropical garden" width="1200" height="1599" loading="lazy">
+        </figure>
+
+        <figure class="carousel__slide">
+          <img src="images/carousel/05-wedding-guests.jpg" alt="Abigail and Luke dressed up as wedding guests in green" width="1200" height="1600" loading="lazy">
+        </figure>
+
+        <figure class="carousel__slide">
+          <img src="images/carousel/06-bridgeclimb.jpg" alt="Abigail and Luke on top of Sydney Harbour Bridge with the Opera House behind" width="1200" height="857" loading="lazy">
+        </figure>
+
+        <figure class="carousel__slide">
+          <img src="images/carousel/07-catamaran.jpg" alt="Abigail and Luke on a catamaran at sunset" width="1200" height="1600" loading="lazy">
+        </figure>
+
+      </div>
+
+      <!-- The dots are created by script.js, one per photo -->
+      <div class="carousel__dots" id="carouselDots"></div>
+    </section>
+
+
+    <!-- ===================== 3. NAMES, DATE, PLACE ===================== -->
+    <section class="hero">
+      <!-- Decorative flowers (alt="" + aria-hidden so screen readers skip them) -->
+      <img class="flourish flourish--left" src="images/bougainvillea.svg" alt="" aria-hidden="true">
+      <img class="flourish flourish--right" src="images/bougainvillea.svg" alt="" aria-hidden="true">
+
+      <h1 class="names">
+        <span>Abigail</span>
+        <span class="amp">&amp;</span>
+        <span>Luke</span>
+      </h1>
+
+      <p class="date">24th September 2028</p>
+
+      <!-- Green sprig divider, drawn as a small SVG. currentColor means it
+           uses the CSS "color" of .sprig (olive green). -->
+      <svg class="sprig" viewBox="0 0 240 24" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round">
+          <line x1="0" y1="12" x2="88" y2="12"/>
+          <line x1="152" y1="12" x2="240" y2="12"/>
+          <path d="M98 14 C112 12 128 12 142 9"/>
+        </g>
+        <g fill="currentColor">
+          <ellipse cx="108" cy="9"  rx="5" ry="2.2" transform="rotate(-35 108 9)"/>
+          <ellipse cx="112" cy="17" rx="5" ry="2.2" transform="rotate(30 112 17)"/>
+          <ellipse cx="122" cy="7"  rx="5" ry="2.2" transform="rotate(-35 122 7)"/>
+          <ellipse cx="126" cy="15" rx="5" ry="2.2" transform="rotate(30 126 15)"/>
+          <ellipse cx="137" cy="6"  rx="5" ry="2.2" transform="rotate(-20 137 6)"/>
+        </g>
+      </svg>
+
+      <p class="place">
+        Liopetro<br>
+        Paphos
+        <span class="place__country">Cyprus</span>
+      </p>
+    </section>
+
+
+    <!-- ===================== 4. ARCHED TILES (MENU) =====================
+         Each tile is just a link. To rename a page, change both the href
+         and the file name in the folder. -->
+    <nav class="tiles" aria-label="Wedding information">
+      <a class="tile" href="timeline.html"><span>Timeline</span></a>
+      <a class="tile" href="accommodation.html"><span>Accommodation</span></a>
+      <a class="tile" href="food.html"><span>Food</span></a>
+      <a class="tile" href="dresscode.html"><span>Dress Code</span></a>
+      <a class="tile" href="rsvp.html"><span>RSVP</span></a>
+      <a class="tile" href="faqs.html"><span>FAQs</span></a>
     </nav>
 
-<!----------- HOME PAGE ------------------>
-      <!-- Main hero / home section: title, date and location. -->
-      <a id="maincontent"></a>
-      <section id="home">
-        <h1>Abigail</h1>
-        <h4> & </h4>
-        <h1>Luke</h1>
-        <h2>24 September 2028</h2>
-        <h3>Liopetro,</h3>
-        <h3>Paphos,</h3>
-        <h3>Cyprus</h3>
 
-      </section>
-  
+    <!-- ===================== 5. FOOTER ===================== -->
+    <footer class="home-footer">
+      <p>We can't wait to celebrate with you.</p>
+      <p>Please <a href="rsvp.html">RSVP</a> by <strong>Friday 2nd June 2028</strong>.</p>
+      <button type="button" class="replay" id="replayDoors">See the doors again</button>
+    </footer>
 
-  <!----------- RSVP PAGE ------------------>
-      <!-- RSVP call-to-action: brief invite and button linking to the RSVP page. -->
-      <section id="rsvp">
-        <h2>Will you be available to celebrate with us?</h2>
-        <p>
-          We can't wait to celebrate our special day with you.
-          Please let us know whether you'll be joining us by completing our RSVP form
-        </p>
-        <a href="rsvp.html" class="btn">
-          RSVP
-        </a>
-      </section>
-      
+  </main>
 
-  <!----------- JAVASCRIPT ------------------>
-  <!-- Load the interaction script which handles the mobile menu toggling. -->
-      <script src="script.js"></script>
-
-
-  </body>
+  <!-- Load the shared script last, once the HTML above exists -->
+  <script src="script.js"></script>
+</body>
 
 </html>

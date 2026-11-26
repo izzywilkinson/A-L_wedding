@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     timeline.html  –  TIMELINE (was schedule.html)
+     ---------------------------------------------------------------------
+     Every sub-page uses the same skeleton:
+       <header class="topbar">   "← Home" bar that sticks to the top
+       <main class="page">
+         <article class="card">  the cream panel holding the content
+         <nav class="page-nav">  pills linking to the other pages
+     So to make a NEW page: copy this file, rename it, change the title
+     and what's inside <article class="card">, then add a link to it in
+     the tiles on index.html and in the page-nav of every page.
+     ===================================================================== -->
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Timeline · Abigail &amp; Luke</title>
+  <meta name="theme-color" content="#f6eddf">
+  <link rel="icon" type="image/svg+xml" href="images/flower.svg">
+
+  <!-- Same fonts as every page -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Top bar: back to home + monogram (also a link home) -->
+  <header class="topbar">
+    <a class="topbar__back" href="index.html">&larr; Home</a>
+    <a class="topbar__mono" href="index.html" aria-label="Abigail and Luke – home">A &amp; L</a>
+  </header>
+
+  <main id="main" class="page">
+    <article class="card">
+      <h1 class="page-title">Timeline</h1>
+
+      <h2>Welcome Drinks</h2>
+      <p><strong>Friday 22nd September &middot; from 6pm &middot; Antasia bar</strong></p>
+      <p>We will be hosting an optional welcome drinks reception for those who will be in Cyprus that evening. Please join us for drinks and mingling!</p>
+
+      <h2>Order of the Day</h2>
+      <p class="note">Sunday 24th September 2028</p>
+
+      <!-- <ol> = ordered list. The CSS draws the pink line and dots.
+           <time> just marks text as a time (helps screen readers). -->
+      <ol class="timeline">
+        <li><time>3:00pm</time><span>Liopetro wedding bus pickup</span></li>
+        <li><time>3:30pm</time><span>Welcome drinks</span></li>
+        <li><time>4:00pm</time><span>Ceremony</span></li>
+        <li><time>6:30pm</time><span>Wedding BBQ</span></li>
+        <li><time>8:30pm</time><span>Party</span></li>
+        <li><time>11:45pm</time><span>Liopetro wedding bus drop off</span></li>
+      </ol>
+
+      <p class="note"><strong>NB:</strong> Exact pickup time to be confirmed depending on pickup location &ndash; let us know which hotel you choose and we'll advise you of the nearest pickup location and timing.</p>
+    </article>
+
+    <!-- Links to the other pages. script.js highlights the current one. -->
+    <nav class="page-nav" aria-label="Other pages">
+      <a href="timeline.html">Timeline</a>
+      <a href="accommodation.html">Accommodation</a>
+      <a href="food.html">Food</a>
+      <a href="dresscode.html">Dress Code</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="faqs.html">FAQs</a>
+    </nav>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
